@@ -1,18 +1,32 @@
 package com.instanews.instanewz.services.impl;
 
 import java.util.Optional;
+import java.util.UUID;
 
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
 import com.instanews.instanewz.entities.User;
+import com.instanews.instanewz.repositories.UserRepo;
 import com.instanews.instanewz.services.UserService;
 
 @Service
 public class UserServiceImpl implements UserService{
 
+    @Autowired
+    private PasswordEncoder passwordEncoder;
+
+    @Autowired
+    private UserRepo userRepo;
+
     @Override
     public User saveUser(User user) {
-        throw new UnsupportedOperationException("Unimplemented method 'saveUser'");
+        String userId = UUID.randomUUID().toString();
+        user.setUserId(userId);
+        // password encode
+        user.setPassword(passwordEncoder.encode(user.getPassword()));
+        return userRepo.save(user);
     }
 
     @Override
@@ -41,8 +55,7 @@ public class UserServiceImpl implements UserService{
 
     @Override
     public User getUserByEmail(String email) {
-        
-        throw new UnsupportedOperationException("Unimplemented method 'getUserByEmail'");
+        return userRepo.findByEmail(email).orElse(null);
     }
     
 }

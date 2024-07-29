@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en" th:replace="~{base :: parent(~{:: #content}, ~{:: title}, ~{:: script})}">
+
+<head>
+    <title> Register Page </title>
+</head>
+
+<body>
+    <div id="content">
+
+        <div class="grid grid-cols-12 mt-20 mb-4">
+            <div class="md:col-span-3"></div>
+            <div class="col-span-12 md:col-span-6">
+                <div
+                    class="block p-6 bg-white border-t-8 border-b-2 border-x-2 border-purple-600 rounded-lg shadow-lg hover:bg-blue-200 dark:bg-gray-900 dark:border-purple-700  dark:hover:border-indigo-700">
+
+                    <!-- message fragment -->
+                    <div data-th-replace="message :: messagebox"></div>
+
+                    <h5 class="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white"> Signup Here</h5>
+
+                    <!-- form start -->
+                    <form data-th-action="@{'/do-register'}" method="post" data-th-object="${userForm}" novalidate
+                        class="mt-5">
+
+                        <!-- name -->
+                        <div class="mb-3">
+                            <label for="name"
+                                class="block mb-2 text-sm font-medium text-gray-900 dark:text-white"> Name
+                            </label>
+                            <input type="text" id="name" data-th-field="*{name}"
+                                class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                                placeholder="Enter here.." required />
+                            <p data-th-if="${#fields.hasErrors('name')}" data-th-errors="*{name}"
+                                class="text-red-600 py-1 px-2">
+                            </p>
+                        </div>
+
+                        <!-- email -->
+                        <div class="mb-3">
+                            <label for="email"
+                                class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">
+                                Email
+                            </label>
+                            <input type="email" id="email" data-th-field="*{email}"
+                                class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                                placeholder="name@xyz.com" required />
+                            <p data-th-if="${#fields.hasErrors('email')}" data-th-errors="*{email}"
+                                class="text-red-600 py-1 px-2">
+                            </p>
+                        </div>
+
+                        <!-- password -->
+                        <div class="mb-3">
+                            <label for="password"
+                                class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">
+                                New Password
+                            </label>
+                            <input type="password" id="password" data-th-field="*{password}"
+                                class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                                placeholder="********" required />
+                            <p data-th-if="${#fields.hasErrors('password')}" data-th-errors="*{password}"
+                                class="text-red-600 py-1 px-2">
+                            </p>
+                        </div>
+
+                        <!-- buttons -->
+                        <div class="mb-3 flex justify-center space-x-3">
+                            <button type="submit" class="px-3 py-2 rounded bg-blue-700 text-white hover:bg-blue-600">
+                                Signup</button>
+                            <button type="reset" class="px-3 py-2 rounded bg-purple-700 text-white hover:bg-purple-600">
+                                Reset</button>
+                        </div>
+                    </form>
+
+                </div>
+            </div>
+        </div>
+
+    </div>
+    <script>
+        console.log('register page')
+    </script>
+</body>
+
+</html>
