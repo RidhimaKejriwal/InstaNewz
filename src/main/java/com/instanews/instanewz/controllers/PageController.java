@@ -4,15 +4,16 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
-import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
+import com.instanews.instanewz.entities.NewsResponse;
 import com.instanews.instanewz.entities.User;
 import com.instanews.instanewz.forms.UserForm;
 import com.instanews.instanewz.helpers.Message;
 import com.instanews.instanewz.helpers.MessageType;
+import com.instanews.instanewz.services.NewsService;
 import com.instanews.instanewz.services.UserService;
 
 import jakarta.servlet.http.HttpSession;
@@ -24,13 +25,21 @@ public class PageController {
     @Autowired
     private UserService userService;
 
-    @GetMapping("/")
-    public String index() {
-        return "redirect:/home";
+    private final NewsService newsService;
+
+    public PageController(NewsService newsService) {
+        this.newsService = newsService;
     }
     
     @RequestMapping("/home")
-    public String home() {
+    public String home(Model model) {
+
+        NewsResponse newsResponse = newsService.getTop3("general").block(); // For debugging
+        if (newsResponse != null) {
+            model.addAttribute("articles", newsResponse.getArticles());
+        } else {
+            model.addAttribute("error", "Error fetching news");
+        }
         return "home";
     }
 

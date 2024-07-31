@@ -19,7 +19,7 @@ public class NewsController {
         this.defaultCategory = defaultCategory;
     }
 
-    @GetMapping("/help")
+    @GetMapping("/")
     public String getTopHeadlines(Model model) {
 
         NewsResponse newsResponse = newsService.getTopHeadlines(defaultCategory).block(); // For debugging
@@ -29,6 +29,6 @@ public class NewsController {
             model.addAttribute("error", "Error fetching news");
         }
 
-        return "help";
+        return "index";
     }
 }

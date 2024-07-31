@@ -30,4 +30,17 @@ public class NewsService {
                 .retrieve()
                 .bodyToMono(NewsResponse.class);
     }
+
+    public Mono<NewsResponse> getTop3(String category) {
+        return webClient.get()
+                .uri(uriBuilder -> uriBuilder
+                        .path("/top-headlines")
+                        .queryParam("category", category)
+                        .queryParam("country", "in")
+                        .queryParam("pageSize", 3) // Fetch only 3 articles
+                        .queryParam("apiKey", apiKey)
+                        .build())
+                .retrieve()
+                .bodyToMono(NewsResponse.class);
+    }
 }

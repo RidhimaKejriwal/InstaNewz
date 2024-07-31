@@ -15,12 +15,14 @@
 
                 <div
                     class="w-full max-w-sm bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">
-                    
+
                     <div class="flex flex-col items-center pb-10 mt-5">
-                        <img class="w-24 h-24 mb-3 rounded-full shadow-lg"
-                            src="/images/default.png" alt="Bonnie image" />
-                        <h5 class="mb-1 text-xl font-medium text-gray-900 dark:text-white" data-th-text="${user.name}" ></h5>
-                        <h5 class="mb-1 text-sm font-medium text-gray-900 dark:text-gray-400" data-th-text="${user.email}" ></h5>
+                        <img class="w-24 h-24 mb-3 rounded-full shadow-lg" src="/images/default.png"
+                            alt="Bonnie image" />
+                        <h5 class="mb-1 text-xl font-medium text-gray-900 dark:text-white" data-th-text="${user.name}">
+                        </h5>
+                        <h5 class="mb-1 text-sm font-medium text-gray-900 dark:text-gray-400"
+                            data-th-text="${user.email}"></h5>
                         <span class="text-sm text-gray-500 dark:text-gray-400"></span>
                         <div class="flex mt-4 md:mt-6">
                             <a href="#"
@@ -35,83 +37,43 @@
             <div class="col-span-9">
                 <!-- show categories -->
                 <div class="flex items-center justify-center py-4 md:py-8 flex-wrap">
-                    <button type="button"
+                    <a data-th-href="@{/user/dashboard?category=general}"
                         class="text-blue-700 hover:text-white border border-blue-600 bg-white hover:bg-blue-700 focus:ring-4 focus:outline-none focus:ring-blue-300 rounded-full text-base font-medium px-5 py-2.5 text-center me-3 mb-3 dark:border-blue-500 dark:text-blue-500 dark:hover:text-white dark:hover:bg-blue-500 dark:bg-gray-900 dark:focus:ring-blue-800">General
-                        </button>
-                    <button type="button"
-                        class="text-gray-900 border border-white hover:border-gray-200 dark:border-gray-900 dark:bg-gray-900 dark:hover:border-gray-700 bg-white focus:ring-4 focus:outline-none focus:ring-gray-300 rounded-full text-base font-medium px-5 py-2.5 text-center me-3 mb-3 dark:text-white dark:focus:ring-gray-800">Business</button>
-                    <button type="button"
-                        class="text-gray-900 border border-white hover:border-gray-200 dark:border-gray-900 dark:bg-gray-900 dark:hover:border-gray-700 bg-white focus:ring-4 focus:outline-none focus:ring-gray-300 rounded-full text-base font-medium px-5 py-2.5 text-center me-3 mb-3 dark:text-white dark:focus:ring-gray-800">Entertainment</button>
-                    <button type="button"
-                        class="text-gray-900 border border-white hover:border-gray-200 dark:border-gray-900 dark:bg-gray-900 dark:hover:border-gray-700 bg-white focus:ring-4 focus:outline-none focus:ring-gray-300 rounded-full text-base font-medium px-5 py-2.5 text-center me-3 mb-3 dark:text-white dark:focus:ring-gray-800">Technology</button>
-                    <button type="button"
-                        class="text-gray-900 border border-white hover:border-gray-200 dark:border-gray-900 dark:bg-gray-900 dark:hover:border-gray-700 bg-white focus:ring-4 focus:outline-none focus:ring-gray-300 rounded-full text-base font-medium px-5 py-2.5 text-center me-3 mb-3 dark:text-white dark:focus:ring-gray-800">Health</button>
-                    <button type="button"
-                        class="text-gray-900 border border-white hover:border-gray-200 dark:border-gray-900 dark:bg-gray-900 dark:hover:border-gray-700 bg-white focus:ring-4 focus:outline-none focus:ring-gray-300 rounded-full text-base font-medium px-5 py-2.5 text-center me-3 mb-3 dark:text-white dark:focus:ring-gray-800">Science</button>
-                    <button type="button"
-                        class="text-gray-900 border border-white hover:border-gray-200 dark:border-gray-900 dark:bg-gray-900 dark:hover:border-gray-700 bg-white focus:ring-4 focus:outline-none focus:ring-gray-300 rounded-full text-base font-medium px-5 py-2.5 text-center me-3 mb-3 dark:text-white dark:focus:ring-gray-800">Sports</button>
+                    </a>
+                    <a data-th-href="@{/user/dashboard?category=business}"
+                        class="text-gray-900 border border-white hover:border-gray-200 dark:border-gray-900 dark:bg-gray-900 dark:hover:border-gray-700 bg-white focus:ring-4 focus:outline-none focus:ring-gray-300 rounded-full text-base font-medium px-5 py-2.5 text-center me-3 mb-3 dark:text-white dark:focus:ring-gray-800">Business</a>
+                    <a data-th-href="@{/user/dashboard?category=entertainment}"
+                        class="text-gray-900 border border-white hover:border-gray-200 dark:border-gray-900 dark:bg-gray-900 dark:hover:border-gray-700 bg-white focus:ring-4 focus:outline-none focus:ring-gray-300 rounded-full text-base font-medium px-5 py-2.5 text-center me-3 mb-3 dark:text-white dark:focus:ring-gray-800">Entertainment</a>
+                    <a data-th-href="@{/user/dashboard?category=technology}"
+                        class="text-gray-900 border border-white hover:border-gray-200 dark:border-gray-900 dark:bg-gray-900 dark:hover:border-gray-700 bg-white focus:ring-4 focus:outline-none focus:ring-gray-300 rounded-full text-base font-medium px-5 py-2.5 text-center me-3 mb-3 dark:text-white dark:focus:ring-gray-800">Technology</a>
+                    <a data-th-href="@{/user/dashboard?category=health}"
+                        class="text-gray-900 border border-white hover:border-gray-200 dark:border-gray-900 dark:bg-gray-900 dark:hover:border-gray-700 bg-white focus:ring-4 focus:outline-none focus:ring-gray-300 rounded-full text-base font-medium px-5 py-2.5 text-center me-3 mb-3 dark:text-white dark:focus:ring-gray-800">Health</a>
+                    <a data-th-href="@{/user/dashboard?category=science}"
+                        class="text-gray-900 border border-white hover:border-gray-200 dark:border-gray-900 dark:bg-gray-900 dark:hover:border-gray-700 bg-white focus:ring-4 focus:outline-none focus:ring-gray-300 rounded-full text-base font-medium px-5 py-2.5 text-center me-3 mb-3 dark:text-white dark:focus:ring-gray-800">Science</a>
+                    <a data-th-href="@{/user/dashboard?category=sports}"
+                        class="text-gray-900 border border-white hover:border-gray-200 dark:border-gray-900 dark:bg-gray-900 dark:hover:border-gray-700 bg-white focus:ring-4 focus:outline-none focus:ring-gray-300 rounded-full text-base font-medium px-5 py-2.5 text-center me-3 mb-3 dark:text-white dark:focus:ring-gray-800">Sports</a>
                 </div>
 
                 <!-- news feed -->
 
-                <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
-                    <div class="grid gap-4">
-                        <div>
-                            <img class="h-auto max-w-full rounded-lg"
-                                src="https://flowbite.s3.amazonaws.com/docs/gallery/masonry/image.jpg" alt="">
-                        </div>
-                        <div>
-                            <img class="h-auto max-w-full rounded-lg"
-                                src="https://flowbite.s3.amazonaws.com/docs/gallery/masonry/image-1.jpg" alt="">
-                        </div>
-                        <div>
-                            <img class="h-auto max-w-full rounded-lg"
-                                src="https://flowbite.s3.amazonaws.com/docs/gallery/masonry/image-2.jpg" alt="">
-                        </div>
-                    </div>
-                    <div class="grid gap-4">
-                        <div>
-                            <img class="h-auto max-w-full rounded-lg"
-                                src="https://flowbite.s3.amazonaws.com/docs/gallery/masonry/image-3.jpg" alt="">
-                        </div>
-                        <div>
-                            <img class="h-auto max-w-full rounded-lg"
-                                src="https://flowbite.s3.amazonaws.com/docs/gallery/masonry/image-4.jpg" alt="">
-                        </div>
-                        <div>
-                            <img class="h-auto max-w-full rounded-lg"
-                                src="https://flowbite.s3.amazonaws.com/docs/gallery/masonry/image-5.jpg" alt="">
-                        </div>
-                    </div>
-                    <div class="grid gap-4">
-                        <div>
-                            <img class="h-auto max-w-full rounded-lg"
-                                src="https://flowbite.s3.amazonaws.com/docs/gallery/masonry/image-6.jpg" alt="">
-                        </div>
-                        <div>
-                            <img class="h-auto max-w-full rounded-lg"
-                                src="https://flowbite.s3.amazonaws.com/docs/gallery/masonry/image-7.jpg" alt="">
-                        </div>
-                        <div>
-                            <img class="h-auto max-w-full rounded-lg"
-                                src="https://flowbite.s3.amazonaws.com/docs/gallery/masonry/image-8.jpg" alt="">
-                        </div>
-                    </div>
-                    <div class="grid gap-4">
-                        <div>
-                            <img class="h-auto max-w-full rounded-lg"
-                                src="https://flowbite.s3.amazonaws.com/docs/gallery/masonry/image-9.jpg" alt="">
-                        </div>
-                        <div>
-                            <img class="h-auto max-w-full rounded-lg"
-                                src="https://flowbite.s3.amazonaws.com/docs/gallery/masonry/image-10.jpg" alt="">
-                        </div>
-                        <div>
-                            <img class="h-auto max-w-full rounded-lg"
-                                src="https://flowbite.s3.amazonaws.com/docs/gallery/masonry/image-11.jpg" alt="">
+                <!-- News Feed -->
+                <div style="column-count: 2; column-gap: 1rem;">
+                    <div th:each="article : ${articles}" style="display: inline-block; width: 100%; margin-bottom: 1rem; break-inside: avoid;">
+                        <div class="bg-gray-900 rounded-lg shadow-md overflow-hidden">
+                            <img th:src="${article.urlToImage}" th:if="${article.urlToImage != null}" class="w-full object-cover rounded-t" 
+                                 th:alt="${article.title}" style="max-height: 200px;">
+                            <div class="p-4">
+                                <h3 class="text-lg font-semibold mb-2" th:text="${article.title}"></h3>
+                                <p class="text-gray-400 mb-4" th:text="${article.description}"></p>
+                                <a th:href="${article.url}" target="_blank" class="text-blue-500 hover:underline mt-2 inline-block">Read more</a>
+                                <button class="bg-purple-500 text-white py-2 px-4 rounded hover:bg-purple-400 transition duration-300 float-right">Save</button>
+                                <p class="text-gray-400 mb-4" data-th-text="${article.publishedAt}"></p>
+                                <h5>Author: <span th:text="${article.author}">Unknown</span></h5>
+                            </div>
                         </div>
                     </div>
                 </div>
+
             </div>
 
 

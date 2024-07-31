@@ -95,28 +95,21 @@
             <h2 class="text-2xl font-bold text-gray-400 mb-6">Latest News</h2>
             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
                 <!-- News Article Card -->
-                <div class="bg-gray-900 rounded-lg shadow-md p-4">
-                    <h3 class="text-lg font-semibold mb-2">News Article Title</h3>
-                    <p class="text-gray-400 mb-4">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus
-                        lacinia odio vitae vestibulum.</p>
-                    <button
-                        class="bg-blue-500 text-white py-2 px-4 rounded hover:bg-blue-400 transition duration-300 float-right">Save</button>
+                <div th:each="article : ${articles}">
+                    <div class="bg-gray-900 rounded-lg shadow-md p-4">
+                        <img data-th-src="${article.urlToImage}" class="w-full h-48 object-cover rounded-t"
+                        th:alt="${article.title}" data-th-if="${article.urlToImage != null}">
+                        <h3 class="text-lg font-semibold mb-2" data-th-text="${article.title}"></h3>
+                        <p class="text-gray-400 mb-4" data-th-text="${article.description}"></p>
+                        <a data-th-href="${article.url}" target="_blank"
+                        class="text-blue-500 hover:underline mt-2 inline-block">Read more</a>
+                        <button
+                            class="bg-purple-500 text-white py-2 px-4 rounded hover:bg-purple-400 transition duration-300 float-right">Save</button>
+                        <p class="text-gray-400 mb-4" data-th-text="${article.publishedAt}"></p>
+                        
+                    </div>
                 </div>
-                <!-- Repeat the card as needed -->
-                <div class="bg-gray-900 rounded-lg shadow-md p-4">
-                    <h3 class="text-lg font-semibold mb-2">News Article Title</h3>
-                    <p class="text-gray-400 mb-4">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus
-                        lacinia odio vitae vestibulum.</p>
-                    <button
-                        class="bg-blue-500 text-white py-2 px-4 rounded hover:bg-blue-400 transition duration-300 float-right">Save</button>
-                </div>
-                <div class="bg-gray-900 rounded-lg shadow-md p-4">
-                    <h3 class="text-lg font-semibold mb-2">News Article Title</h3>
-                    <p class="text-gray-400 mb-4">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus
-                        lacinia odio vitae vestibulum.</p>
-                    <button
-                        class="bg-blue-500 text-white py-2 px-4 rounded hover:bg-blue-400 transition duration-300 float-right">Save</button>
-                </div>
+
             </div>
         </section>
 
