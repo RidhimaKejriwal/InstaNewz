@@ -21,6 +21,7 @@ public class UserController {
     @RequestMapping("/dashboard")
     private String dashboard(@RequestParam(value = "category", defaultValue = "general") String category, Model model) {
 
+        model.addAttribute("selectedCategory", category); // Set the selected category
         NewsResponse newsResponse = newsService.getTopHeadlines(category).block(); // For debugging
         if (newsResponse != null) {
             model.addAttribute("articles", newsResponse.getArticles());

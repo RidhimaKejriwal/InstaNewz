@@ -30,6 +30,11 @@ public class PageController {
     public PageController(NewsService newsService) {
         this.newsService = newsService;
     }
+
+    @RequestMapping("/")
+    public String index() {
+        return "redirect:home";
+    }
     
     @RequestMapping("/home")
     public String home(Model model) {
