@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>InstaNewz - Top Headlines</title>
+    <link href="https://unpkg.com/tailwindcss@^2/dist/tailwind.min.css" rel="stylesheet">
+    <link rel="stylesheet" data-th-href="@{'/css/style.css'}" />
+    <link rel="stylesheet" data-th-href="@{'/css/output.css'}" />
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/flowbite/2.3.0/flowbite.min.css" rel="stylesheet" />
+    <!-- font awesome  -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
+        integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+</head>
+<body class="bg-gray-100">
+
+<div class="container mx-auto px-4">
+    <h1 class="text-4xl font-bold my-4">Top Headlines</h1>
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+        <div data-th-each="article : ${articles}" class="bg-white p-4 rounded shadow-md">
+            <h2 class="text-xl font-bold mt-2" data-th-text="${article.title}"></h2>
+            <p class="text-gray-600" data-th-text="${article.description}"></p>
+            <a data-th-href="${article.url}" target="_blank" class="text-blue-500 hover:underline mt-2 inline-block">Read more</a>
+        </div>
+    </div>
+</div>
+
+</body>
+</html>
